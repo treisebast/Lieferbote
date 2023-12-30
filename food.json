@@ -1,0 +1,23 @@
+[
+    {
+        "question": "Wann wurden die Bayrischen Motoren Werke gegründet?",
+        "answer": [
+            "19. April 1995",
+            "07. März 1916",
+            "23. August 1875",
+            "Im 17. Jahrhundert"
+        ],
+        "rightAnswer": 2
+    },
+    {
+        "question": "Wie hoch ist in Paris der Eiffelturm?",
+        "answer": [
+            "330 Meter",
+            "150 Meter",
+            "220 Meter",
+            "40 Meter"
+        ],
+        "rightAnswer": 1
+    }
+   
+]

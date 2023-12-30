@@ -1,0 +1,51 @@
+/* Footer */
+.footer {
+    /* background-color: rgb(0, 150, 255, 0.20); */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: static;
+    padding: 32px;
+    margin-top: 15px;
+    font-weight: 500;
+}
+
+.footer a {
+    text-decoration: none;
+    color: black;
+}
+
+.footer a:hover {
+    color: deepskyblue;
+    transition: ease-in 125ms;
+    text-decoration: underline;
+    text-underline-offset: 6px;
+    text-shadow: 0px 0px 1px rgba(0, 100, 255, 0.15);
+}
+
+.imprint-content a {
+    text-decoration: none;
+    color: black;
+}
+
+.imprint-content a:hover {
+    color: rgb(86, 154, 255);
+    transition: ease-in 125ms;
+    text-decoration: underline;
+    text-underline-offset: 4px;
+    font-weight: 400;
+    text-shadow: 0px 0px 1px rgba(80, 150, 255, 0.3);
+}
+
+@media (max-width:400px) {
+    .imprint-content{
+        padding-right: 8px;
+        padding-left: 8px;
+    }
+    .card-body-imprint{
+        padding-left: 6px !important;
+        padding-right: 6px !important;
+        font-size: 1rem;
+    }
+
+}

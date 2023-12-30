@@ -1,0 +1,20 @@
+html {
+    font-size: 18px;
+    font-family: Rubik;
+}
+
+body {
+    height: 200vh;
+    margin: 0px;
+}
+
+#shoppingCard {
+    width: 200px;
+    height: 800px;
+    background-color: rgba(0, 0, 0, 0.1);
+    padding: 24px;
+    position: fixed;
+    top: 90px;
+    right: 0px;
+    transition: all 300ms ease-in-out;
+}
