@@ -28,6 +28,21 @@ async function loadMenu() {
 
 window.onscroll = function () {
     let shoppingCard = document.getElementById("shoppingCard");
-    shoppingCard.style.top = `${Math.max(0, 90 - window.scrollY)}px`;
+    shoppingCard.style.top = `${Math.max(0, 80 - window.scrollY)}px`;
 }
 
+// Search-Filter:
+function filterNames() {
+    let search = document.getElementById(`inputField`).value.trim().toLowerCase();
+    let content = document.getElementById("content");
+    content.innerHTML = "";
+    for (let i = 0; i < pokemons.length; i++) {
+        let pokemon = pokemons[i];
+        let pokemonName = pokemon["name"].toLowerCase();
+        let pokemonNumber = pokemon["id"].toString();
+        if (pokemonName.includes(search) || pokemonNumber.includes(search)) {
+            content.innerHTML += generateHtmlRenderPokemon(i);
+            renderPokemonElement(pokemon, i, "");
+        }
+    }
+}

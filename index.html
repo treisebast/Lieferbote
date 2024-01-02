@@ -9,16 +9,16 @@
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="fonts.css">
     <link rel="stylesheet" href="imprint.css">
-    <link rel="stylesheet" href="templates/head_foot.css">
+    <link rel="stylesheet" href="templates/templates.css">
     <script src="script.js"></script>
 
 
-    <script id="Cookiebot" src="https://consent.cookiebot.com/uc.js" data-cbid="0460a567-6eba-4899-a055-0b271c957ca6"
-        data-blockingmode="auto" type="text/javascript">
-        </script>
-
     <!-- Favicon -->
-    
+    <link rel="apple-touch-icon" sizes="180x180" href="./favicon/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="./favicon/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="./favicon/favicon-16x16.png">
+    <link rel="manifest" href="./favicon/site.webmanifest">
+
 
 </head>
 
@@ -27,9 +27,54 @@
     <!-- Header -->
     <div w3-include-html="templates/header.html"></div>
 
-    
 
-    <div id="shoppingCard"></div>
+    <!-- Menu Container -->
+    <div class="container">
+        <img class="image-menu" src="img/pizza-3007395_640.jpg">
+
+        <div class="pizzeria-container">
+            <h2>Pizzeria Belveedere</h2>
+            <div class="pizzeria-review">
+                <span class="material-symbols-outlined review-star">star</span>
+                <span class="material-symbols-outlined review-star">star</span>
+                <span class="material-symbols-outlined review-star">star</span>
+                <span class="material-symbols-outlined review-star">star</span>
+                <span class="material-symbols-outlined review-half-star">star</span>
+            </div>
+
+            <span>Freuen Sie sich auf unsere köstlichen hausgemachten italienischen Spezialitäten,
+                die Sie jetzt ganz
+                bequem
+                zu Hause genießen können! Das gesamte Team von Belveedere wünscht Ihnen einen vorzüglichen Genuss
+                und einen guten Appetit!</span>
+
+            <div class="search-position">
+                <input class="inputfield-header" id="inputField" type="text" placeholder="Gericht eingeben"
+                    onkeyup="filterNames()">
+                <span class="material-symbols-outlined">search</span>
+            </div>
+        </div>
+
+
+    </div>
+
+
+    <!-- Shopping Basket -->
+    <div class="shopping-card-container">
+        <div class="shopping-card">
+            <h2>Warenkorb</h2>
+            <div class="collection-delivery">
+                <button class="delivery">Lieferung</button>
+                <button class="collection">Abholung</button>
+            </div>
+            <div class="shopping-basket" id="shoppingBasket">
+                <span class="material-symbols-outlined mso-shopping_bag">shopping_bag</span>
+                <h2>Fülle deinen Warenkorb</h2>
+                <span class="text-align">Füge einige leckere Gerichte aus der Speisekarte hinzu und bestelle dein
+                    Essen.</span>
+            </div>
+        </div>
+    </div>
 
 
     <!-- Footer -->

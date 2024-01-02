@@ -4,17 +4,142 @@ html {
 }
 
 body {
-    height: 200vh;
     margin: 0px;
 }
 
-#shoppingCard {
-    width: 200px;
-    height: 800px;
+/* Shopping Basket */
+.shopping-card-container {
+    width: 320px;
+    height: calc(100vh - 80px - 150px);
     background-color: rgba(0, 0, 0, 0.1);
-    padding: 24px;
     position: fixed;
-    top: 90px;
+    top: 80px;
     right: 0px;
     transition: all 300ms ease-in-out;
+    box-shadow: -5px 0 10px rgba(0, 0, 0, 0.3);
+}
+
+.shopping-card {
+    padding-top: 16px;
+    padding-left: 16px;
+    padding-right: 16px;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+
+.shopping-card h2 {
+    text-align: center;
+}
+
+.collection-delivery {
+    display: flex;
+    border-radius: 20px;
+    background-color: rgba(0, 0, 0, 0.05);
+    width: fit-content;
+    padding: 4px;
+    gap: 8px;
+}
+
+.collection {
+    padding: 8px;
+    border-radius: 20px;
+    border: unset;
+}
+
+.delivery {
+    padding: 8px;
+    border-radius: 20px;
+    border: unset;
+}
+
+.shopping-basket {
+    padding-top: 10vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.shopping-basket h2 {
+    font-size: 1.35em;
+}
+
+.mso-shopping_bag {
+    font-size: 48px !important;
+    transform: unset !important;
+    text-shadow: none !important;
+    cursor: unset !important;
+}
+
+.text-align {
+    text-align: center;
+}
+
+
+/* Menu Container */
+.container {
+    width: calc(100vw - 320px);
+    margin-right: 320px;
+}
+
+.pizzeria-container{
+    padding-left: 32px;
+    padding-right: 32px;
+}
+
+.pizzeria-container h2{
+    margin-bottom: 8px;
+}
+
+.pizzeria-review span{
+    padding-bottom: 8px;
+    transform: none !important;
+    text-shadow: none !important;
+    cursor:  unset !important;
+    font-size: 24px !important;
+}
+
+.review-star::before {
+    content: "star";
+    position: absolute;
+    color: #FF8000;
+}
+
+.review-star, .review-half-star{
+    font-variation-settings:
+        'FILL'1,
+        'wght'400,
+        'GRAD'0,
+        'opsz'40 !important;
+}
+
+.review-half-star::before {
+    content: "star";
+    position: absolute;
+    background: linear-gradient(90deg, #FF8000 60%, white 40%); 
+    -webkit-background-clip: text;
+    color: transparent;
+}
+
+.image-menu{
+    height: 200px;
+    width: calc(100vw - 320px);
+    object-fit: cover;
+}
+
+.inputfield-header {
+    padding: 8px;
+    background-color: rgba(100, 100, 100, 0.05);
+    font-family: 'Rubik';
+    font-size: 16px;
+    border-radius: 8px;
+    flex: 1;
+    width: 34vw;
+    border: unset;
+    outline: unset;
+    max-width: 300px;
+}
+
+.search-position {
+    display: flex;
 }
