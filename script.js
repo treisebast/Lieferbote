@@ -21,10 +21,13 @@ async function loadMenu() {
     try {
         let response = await fetch('food.json');
         let menus = await response.json();
+        console.log(menus);
     } catch (error) {
         console.error('Fehler beim Laden der Gerichte:', error);
     }
 }
+
+
 
 window.onscroll = function () {
     let shoppingCard = document.getElementById("shoppingCard");

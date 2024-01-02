@@ -34,25 +34,30 @@
 
         <div class="pizzeria-container">
             <h2>Pizzeria Belveedere</h2>
-            <div class="pizzeria-review">
-                <span class="material-symbols-outlined review-star">star</span>
-                <span class="material-symbols-outlined review-star">star</span>
-                <span class="material-symbols-outlined review-star">star</span>
-                <span class="material-symbols-outlined review-star">star</span>
-                <span class="material-symbols-outlined review-half-star">star</span>
+            <div class="review-container">
+                <div class="pizzeria-review">
+                    <span class="material-symbols-outlined review-star">star</span>
+                    <span class="material-symbols-outlined review-star">star</span>
+                    <span class="material-symbols-outlined review-star">star</span>
+                    <span class="material-symbols-outlined review-star">star</span>
+                    <span class="material-symbols-outlined review-half-star">star</span>
+                </div>
+                <span class="number-review"> (1,1k Bewertungen)</span>
             </div>
 
             <span>Freuen Sie sich auf unsere köstlichen hausgemachten italienischen Spezialitäten,
-                die Sie jetzt ganz
-                bequem
-                zu Hause genießen können! Das gesamte Team von Belveedere wünscht Ihnen einen vorzüglichen Genuss
-                und einen guten Appetit!</span>
+                die Sie jetzt ganz bequem zu Hause genießen können! <br> Das gesamte Team von Belveedere wünscht Ihnen
+                einen vorzüglichen
+                Genuss und einen guten Appetit!</span>
 
             <div class="search-position">
                 <input class="inputfield-header" id="inputField" type="text" placeholder="Gericht eingeben"
                     onkeyup="filterNames()">
                 <span class="material-symbols-outlined">search</span>
             </div>
+
+            <div class="menu-card" id="menuCard"></div>
+
         </div>
 
 
@@ -67,6 +72,7 @@
                 <button class="delivery">Lieferung</button>
                 <button class="collection">Abholung</button>
             </div>
+            
             <div class="shopping-basket" id="shoppingBasket">
                 <span class="material-symbols-outlined mso-shopping_bag">shopping_bag</span>
                 <h2>Fülle deinen Warenkorb</h2>

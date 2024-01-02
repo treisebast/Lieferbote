@@ -1,5 +1,5 @@
 html {
-    font-size: 18px;
+    font-size: 16px;
     font-family: Rubik;
 }
 
@@ -91,12 +91,19 @@ body {
     margin-bottom: 8px;
 }
 
-.pizzeria-review span{
+.review-container{
+    display: flex;
+    align-items: center;
+    gap: 16px;
     padding-bottom: 8px;
+}
+
+.pizzeria-review span{
     transform: none !important;
     text-shadow: none !important;
     cursor:  unset !important;
-    font-size: 24px !important;
+    font-size: 16px;
+    color: #FF8000;
 }
 
 .review-star::before {
@@ -105,7 +112,7 @@ body {
     color: #FF8000;
 }
 
-.review-star, .review-half-star{
+.review-star{
     font-variation-settings:
         'FILL'1,
         'wght'400,
@@ -116,9 +123,14 @@ body {
 .review-half-star::before {
     content: "star";
     position: absolute;
-    background: linear-gradient(90deg, #FF8000 60%, white 40%); 
-    -webkit-background-clip: text;
-    color: transparent;
+    font-variation-settings: 'FILL' 50, 'wght' 400, 'GRAD' 0, 'opsz' 40 !important;
+    color: #FF8000;
+    mask-image: linear-gradient(90deg, white 50%, transparent 50%);
+}
+
+.number-review{
+    color: black;
+    font-size: 16px;
 }
 
 .image-menu{
@@ -137,9 +149,12 @@ body {
     width: 34vw;
     border: unset;
     outline: unset;
-    max-width: 300px;
+    max-width: 500px;
 }
 
 .search-position {
     display: flex;
+    width: calc(100vw - 384px);
+    justify-content: center;
+    margin-top: 16px;
 }
