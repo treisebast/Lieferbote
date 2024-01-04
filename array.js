@@ -1,3 +1,4 @@
+let shoppingBasket = [];
 let appetizers = [];
 let mainDishs = [
     {

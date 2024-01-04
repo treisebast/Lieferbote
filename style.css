@@ -5,13 +5,14 @@ html {
 
 body {
     margin: 0px;
+    overflow-y: scroll;
 }
 
 /* Shopping Basket */
 .shopping-card-container {
     width: 320px;
-    height: calc(100vh - 80px - 150px);
-    background-color: rgba(225, 225, 225, 1);
+    height: calc(100vh - 80px);
+    background-color: rgb(255, 255, 255);
     position: fixed;
     top: 80px;
     right: 0px;
@@ -184,10 +185,36 @@ body {
     width: 90%;
 }
 
-.dish-card{
+.dish-card-addIcon{
+    display: flex;
+    justify-content: space-between;
     height: 120px;
     background-color: white;
     border-radius: 16px;
     margin-top: 24px;
     padding: 24px;
+}
+
+.mso-add-circle{
+    font-size: 40px;
+    transform: none !important;
+    height: fit-content;
+    padding: 8px;
+}
+
+.dish-card{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+}
+
+.dish-name{
+    font-size: 1.75em;
+    margin-top: 0em;
+    margin-bottom: 0.25em;
+}
+
+.dish-price{
+    font-size: large;
+    font-weight: bold;
 }
