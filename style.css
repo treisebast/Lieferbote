@@ -11,7 +11,7 @@ body {
 .shopping-card-container {
     width: 320px;
     height: calc(100vh - 80px - 150px);
-    background-color: rgba(0, 0, 0, 0.1);
+    background-color: rgba(225, 225, 225, 1);
     position: fixed;
     top: 80px;
     right: 0px;
@@ -78,13 +78,15 @@ body {
 
 /* Menu Container */
 .container {
-    width: calc(100vw - 320px);
+    width: calc(100vw - 320px - 16px);
     margin-right: 320px;
 }
 
 .pizzeria-container{
-    padding-left: 32px;
-    padding-right: 32px;
+    max-width: 700px;
+    width: 90%;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 .pizzeria-container h2{
@@ -134,8 +136,8 @@ body {
 }
 
 .image-menu{
-    height: 200px;
-    width: calc(100vw - 320px);
+    height: 280px;
+    width: calc(100vw - 320px - 16px);
     object-fit: cover;
 }
 
@@ -154,7 +156,38 @@ body {
 
 .search-position {
     display: flex;
-    width: calc(100vw - 384px);
     justify-content: center;
     margin-top: 16px;
+    margin-bottom: 16px;
+}
+
+.render-container{
+    width: calc(100vw - 320px - 16px);
+    background-color: rgba(0, 0, 0, 0.1);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-top: 24px;
+    padding-bottom: 24px;
+}
+
+.main-dish{
+    height: 180px;
+    width: 90%;
+    max-width: 700px;
+    object-fit: cover;
+    border-radius: 16px;
+}
+
+.menu-card{
+    max-width: 700px;
+    width: 90%;
+}
+
+.dish-card{
+    height: 120px;
+    background-color: white;
+    border-radius: 16px;
+    margin-top: 24px;
+    padding: 24px;
 }
