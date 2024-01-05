@@ -70,18 +70,27 @@
 
     <!-- Shopping Basket -->
     <div class="shopping-card-container" id="shoppingCard">
-        <div class="shopping-card" >
+        <div class="shopping-card">
             <h2>Warenkorb</h2>
             <div class="collection-delivery">
-                <button class="delivery">Lieferung</button>
-                <button class="collection">Abholung</button>
+                <button class="delivery" onclick="setDeliveryOption('liefern')">Lieferung</button>
+                <button class="collection" onclick="setDeliveryOption('abholen')">Abholung</button>
+
+
             </div>
 
-            <div class="shopping-basket" id="shoppingBasket">
-                <span class="material-symbols-outlined mso-shopping_bag">shopping_bag</span>
-                <h2>Fülle deinen Warenkorb</h2>
-                <span class="text-align">Füge einige leckere Gerichte aus der Speisekarte hinzu und bestelle dein
-                    Essen.</span>
+            <div id="shoppingBasket">
+                <div class="shopping-basket">
+                    <span class="material-symbols-outlined mso-shopping_bag">shopping_bag</span>
+                    <h2>Fülle deinen Warenkorb</h2>
+                    <span class="text-align">Füge einige leckere Gerichte aus der Speisekarte hinzu und bestelle dein
+                        Essen.</span>
+                </div>
+            </div>
+
+            <div id="totalAmountContainer">
+                <span class="material-symbols-outlined" onclick="calculateTotalAmount()">shopping_cart_checkout</span>
+                <span id="totalAmount">0.00€</span>
             </div>
         </div>
     </div>

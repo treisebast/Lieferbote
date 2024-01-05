@@ -22,8 +22,6 @@ body {
 
 .shopping-card {
     padding-top: 16px;
-    padding-left: 16px;
-    padding-right: 16px;
     display: flex;
     align-items: center;
     flex-direction: column;
@@ -59,10 +57,26 @@ body {
     display: flex;
     flex-direction: column;
     align-items: center;
+    padding-left: 16px;
+    padding-right: 16px ;
 }
 
 .shopping-basket h2 {
     font-size: 1.35em;
+}
+
+#shoppingBasket::-webkit-scrollbar {
+    width: 8px;
+}
+
+#shoppingBasket{
+    overflow-y: auto;
+    overflow-x: hidden;
+    min-height: 500px;
+    max-height: 600px;
+    width: 100%;
+    margin-top: 16px;
+    margin-bottom: 16px;
 }
 
 .mso-shopping_bag {
@@ -196,10 +210,27 @@ body {
 }
 
 .mso-add-circle{
-    font-size: 40px;
-    transform: none !important;
+    transform: scale(1.03);
     height: fit-content;
     padding: 8px;
+}
+
+.mso-circle-sb{
+    font-size: 20px !important;
+    transform: scale(1.03);
+    height: fit-content;
+    padding: 2px;
+    margin-left: 16px;
+}
+
+.counter{
+    font-size: 16px;
+}
+
+.sbCount{
+    padding-left: 8px;
+    padding-right: 8px;
+    font-size: 16px;
 }
 
 .dish-card{
@@ -214,7 +245,43 @@ body {
     margin-bottom: 0.25em;
 }
 
+.sb-dish-name{
+    margin-top: 0;
+    margin-bottom: 0;
+    font-size: 18px;
+}
+
 .dish-price{
     font-size: large;
     font-weight: bold;
+}
+
+.sb-name-price{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 16px;
+}
+
+.sb-dish-price{
+    font-size: 18px;
+}
+
+.sb-dish-card-addIcon{
+    margin-top: 16px;
+    padding: 8px;
+    border-radius: 16px;
+    background-color: rgba(0, 0, 0, 0.05);
+    height: 70px;
+}
+
+.update-count{
+    display: flex;
+    align-items: center;
+}
+
+.sb-add-remove-update{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
 }

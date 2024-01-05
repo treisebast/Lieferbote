@@ -1,5 +1,32 @@
 let shoppingBasket = [];
-let appetizers = [];
+let appetizers = [
+    {
+        appetizer: "Bruschetta",
+        description: ["mit Tomaten und Basilikum"],
+        price: 4.5,
+        count: 0,
+    },
+    {
+        appetizer: "Caprese Salad",
+        description: ["mit Mozzarella, Tomaten und Basilikum"],
+        price: 5.5,
+        count: 0,
+    },
+    {
+        appetizer: "Garlic Bread",
+        description: ["mit Knoblauchbutter"],
+        price: 3.9,
+        count: 0,
+    },
+    {
+        appetizer: "Spinach Artichoke Dip",
+        description: ["mit Spinat, Artischocken und Käse"],
+        price: 6.5,
+        count: 0,
+    },
+];
+
+
 let mainDishs = [
     {
         mainDish: "Pizza Napoli",
