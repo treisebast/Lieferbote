@@ -413,7 +413,9 @@ body {
     background: rgba(255, 128, 0, 0.8);
 }
 
-
+.menu-icon{
+    display: none;
+}
 
 @media screen and (max-width: 850px) {
     .menutitle {
@@ -439,6 +441,10 @@ body {
         right: 0;
         position: fixed !important;
         top: 0;
+    }
+
+    .menu-icon{
+        display: block;
     }
 }
 

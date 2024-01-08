@@ -250,15 +250,15 @@ function checkShoppingBasket() {
         msoSCC.style.color = "rgba(0, 0, 0, 0.3)";
     }
     if (calculateBill() > 30) {
-        disabledTheBuyButtonEffects(openOrderConfirmationBtn);
+        abledTheBuyButtonEffects(openOrderConfirmationBtn);
     }
     if (deliveryOption === 'collection') {
-        disabledTheBuyButtonEffects(openOrderConfirmationBtn);
+        abledTheBuyButtonEffects(openOrderConfirmationBtn);
     }
 }
 
 
-function disabledTheBuyButtonEffects(openOrderConfirmationBtn){
+function abledTheBuyButtonEffects(openOrderConfirmationBtn){
     openOrderConfirmationBtn.disabled = false;
     openOrderConfirmationBtn.classList.add('btn-total-amount-hover');
     msoSCC.style.color = "black";
