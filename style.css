@@ -45,7 +45,8 @@ body {
     border-radius: 20px;
     border: unset;
 }
-.collection:hover, .delivery:hover{
+
+.collection:hover, .delivery:hover {
     background-color: rgba(0, 0, 0, 0.1);
 }
 
@@ -61,7 +62,7 @@ body {
     flex-direction: column;
     align-items: center;
     padding-left: 16px;
-    padding-right: 16px ;
+    padding-right: 16px;
 }
 
 .shopping-basket h2 {
@@ -72,7 +73,7 @@ body {
     width: 8px;
 }
 
-#shoppingBasket{
+#shoppingBasket {
     overflow-y: auto;
     overflow-x: hidden;
     min-height: 250px;
@@ -100,28 +101,28 @@ body {
     margin-right: 320px;
 }
 
-.pizzeria-container{
+.pizzeria-container {
     max-width: 700px;
     width: 90%;
     margin-left: auto;
     margin-right: auto;
 }
 
-.pizzeria-container h2{
+.pizzeria-container h2 {
     margin-bottom: 8px;
 }
 
-.review-container{
+.review-container {
     display: flex;
     align-items: center;
     gap: 16px;
     padding-bottom: 8px;
 }
 
-.pizzeria-review span{
+.pizzeria-review span {
     transform: none !important;
     text-shadow: none !important;
-    cursor:  unset !important;
+    cursor: unset !important;
     font-size: 16px;
     color: #FF8000;
 }
@@ -132,7 +133,7 @@ body {
     color: #FF8000;
 }
 
-.review-star{
+.review-star {
     font-variation-settings:
         'FILL'1,
         'wght'400,
@@ -143,17 +144,17 @@ body {
 .review-half-star::before {
     content: "star";
     position: absolute;
-    font-variation-settings: 'FILL' 50, 'wght' 400, 'GRAD' 0, 'opsz' 40 !important;
+    font-variation-settings: 'FILL'50, 'wght'400, 'GRAD'0, 'opsz'40 !important;
     color: #FF8000;
     mask-image: linear-gradient(90deg, white 50%, transparent 50%);
 }
 
-.number-review{
+.number-review {
     color: black;
     font-size: 16px;
 }
 
-.image-menu{
+.image-menu {
     height: 280px;
     width: calc(100vw - 320px - 16px);
     object-fit: cover;
@@ -179,7 +180,7 @@ body {
     margin-bottom: 16px;
 }
 
-.render-container{
+.render-container {
     width: calc(100vw - 320px - 16px);
     background-color: rgba(0, 0, 0, 0.1);
     display: flex;
@@ -189,7 +190,12 @@ body {
     padding-bottom: 24px;
 }
 
-.main-dish{
+.render-container h1 {
+    max-width: 700px;
+    width: 90%;
+}
+
+.main-dish {
     height: 180px;
     width: 90%;
     max-width: 700px;
@@ -197,12 +203,12 @@ body {
     border-radius: 16px;
 }
 
-.menu-card{
+.menu-card {
     max-width: 700px;
     width: 90%;
 }
 
-.dish-card-addIcon{
+.dish-card-addIcon {
     display: flex;
     justify-content: space-between;
     height: 120px;
@@ -212,13 +218,13 @@ body {
     padding: 24px;
 }
 
-.mso-add-circle{
+.mso-add-circle {
     transform: scale(1.03);
     height: fit-content;
     padding: 8px;
 }
 
-.mso-circle-sb{
+.mso-circle-sb {
     font-size: 20px !important;
     transform: scale(1.03);
     height: fit-content;
@@ -226,51 +232,51 @@ body {
     margin-left: 16px;
 }
 
-.counter{
+.counter {
     font-size: 16px;
 }
 
-.sbCount{
+.sbCount {
     padding-left: 8px;
     padding-right: 8px;
     font-size: 16px;
 }
 
-.dish-card{
+.dish-card {
     display: flex;
     flex-direction: column;
     justify-content: space-around;
 }
 
-.dish-name{
+.dish-name {
     font-size: 1.75em;
     margin-top: 0em;
     margin-bottom: 0.25em;
 }
 
-.sb-dish-name{
+.sb-dish-name {
     margin-top: 0;
     margin-bottom: 0;
     font-size: 18px;
 }
 
-.dish-price{
+.dish-price {
     font-size: large;
     font-weight: bold;
 }
 
-.sb-name-price{
+.sb-name-price {
     display: flex;
     justify-content: space-between;
     align-items: center;
     margin-bottom: 16px;
 }
 
-.sb-dish-price{
+.sb-dish-price {
     font-size: 18px;
 }
 
-.sb-dish-card-addIcon{
+.sb-dish-card-addIcon {
     margin-top: 16px;
     padding: 8px;
     border-radius: 16px;
@@ -278,18 +284,18 @@ body {
     height: 70px;
 }
 
-.update-count{
+.update-count {
     display: flex;
     align-items: center;
 }
 
-.sb-add-remove-update{
+.sb-add-remove-update {
     display: flex;
     align-items: center;
     justify-content: space-between;
 }
 
-.total-amount-container{
+.total-amount-container {
     margin-top: 8px;
     padding-top: 8px;
     display: flex;
@@ -298,12 +304,12 @@ body {
     width: 100%;
 }
 
-.total-amount-container span{
+.total-amount-container span {
     font-size: 1.25em;
     font-weight: 500;
 }
 
-.btn-total-amount{
+.btn-total-amount {
     display: flex;
     align-items: center;
     font-size: 1.35em;
@@ -314,22 +320,22 @@ body {
     padding: 8px;
 }
 
-.btn-total-amount-hover:hover{
+.btn-total-amount-hover:hover {
     background: rgba(255, 128, 0, 0.8);
     cursor: pointer;
 }
 
-.mso-shopping-cart{
+.mso-shopping-cart {
     transform: unset !important;
     text-shadow: unset !important;
 }
 
-.collection-delivery-cost{
+.collection-delivery-cost {
     margin-top: 8px;
     margin-bottom: 8px;
 }
 
-.collection-delivery-cost{
+.collection-delivery-cost {
     display: flex;
     justify-content: space-between;
     width: 90%;
@@ -393,7 +399,7 @@ body {
     margin-bottom: 24px;
 }
 
-.btn-deli-col{
+.btn-deli-col {
     padding: 8px;
     background: rgba(255, 128, 0, 0.5);
     cursor: pointer;
@@ -403,6 +409,85 @@ body {
     margin-right: 8px;
 }
 
-.btn-deli-col:hover{
+.btn-deli-col:hover {
     background: rgba(255, 128, 0, 0.8);
+}
+
+
+
+@media screen and (max-width: 850px) {
+    .menutitle {
+        position: unset !important;
+        margin-left: 0;
+        margin-right: 0;
+    }
+
+    .container, .render-container, .image-menu {
+        width: 100%;
+    }
+
+    .respon-hidden {
+        margin-right: -350px;
+    }
+
+    .shopping-card-container {
+        transition: margin-right 0.3s;
+    }
+
+    .header {
+        left: 0;
+        right: 0;
+        position: fixed !important;
+        top: 0;
+    }
+}
+
+@media screen and (max-width: 500px) {
+    .menutitle {
+        display: none;
+    }
+
+    .dish-card-addIcon {
+        height: unset;
+        padding: 8px;
+    }
+
+    .menu-card {
+        width: 95%;
+    }
+
+    .dish-name {
+        font-size: 1.2em;
+        margin-bottom: 8px;
+    }
+
+    .dish-price {
+        font-size: 1.2em;
+        margin-top: 8px;
+        text-align: end;
+    }
+
+    .dish-card {
+        width: 100%;
+    }
+
+    .sb-dish-price {
+        padding-left: 8px;
+    }
+
+    .sb-dish-card-addIcon {
+        height: unset;
+    }
+
+    .sb-dish-card-addIcon {
+        width: 90%;
+        margin-left: auto;
+        margin-right: auto;
+    }
+}
+
+@media screen and (max-width: 400px) {
+    .shopping-card-container {
+        width: 100%;
+    }
 }

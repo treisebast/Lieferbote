@@ -58,16 +58,18 @@
 
         <!-- Vorspeise -->
         <div class="render-container">
+            <h1>Vorspeisen:</h1>
             <img class="main-dish" src="img/bruschetta-4282902_1280.jpg" alt="Pizza">
 
-            <div class="menu-card" id="menuAppetizer"></div>
+            <div class="menu-card" id="appetizersContainer"></div>
         </div>
 
         <!-- Hauptgerichte -->
         <div class="render-container">
+            <h1>Hauptgerichte:</h1>
             <img class="main-dish" src="img/pizza-3007395_1920.jpg" alt="Pizza">
 
-            <div class="menu-card" id="menuCard"></div>
+            <div class="menu-card" id="mainDishsContainer"></div>
         </div>
 
 
@@ -75,7 +77,7 @@
 
 
     <!-- Shopping Basket -->
-    <div class="shopping-card-container" id="shoppingCard">
+    <div class="shopping-card-container respon-hidden" id="shoppingCard">
         <div class="shopping-card">
             <h2>Warenkorb</h2>
             <div class="collection-delivery">
@@ -106,7 +108,7 @@
             <!-- ConfirmationsModal -->
             <div id="orderConfirmationModal" class="modal">
                 <div class="modal-content">
-                    <span class="close" onclick="closeOrderConfirmationModal()">&times;</span>
+                    <span class="close" onclick="closeOrderConfirmationModal()">&times;</span> <!-- &times wird vom Browser als das X zum schließen umgewandelt-->
                     <p>Vielen Dank! Ihre Bestellung wurde aufgegeben. Wir freuen uns auf Ihren nächsten Besuch!</p>
                 </div>
             </div>
@@ -116,6 +118,7 @@
                 <div class="dialog">
                     <h1>Willkommen bei Lieferbote</h1>
                     <span>Möchten Sie Ihr Bestellung selbst abholen oder liefern lassen?</span>
+                    <span>Der Mindestbestellwert für die Lieferung beträgt 30,00€.</span>
                     <div>
                         <button class="btn-deli-col" onclick="setDeliveryOption('delivery'); closeDialog()">Lieferung</button>
                         <button class="btn-deli-col" onclick="setDeliveryOption('collection'); closeDialog()">Abholung</button>
