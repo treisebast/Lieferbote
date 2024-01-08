@@ -162,6 +162,7 @@ function setDeliveryOption(option) {
         document.getElementById("delivery").style.backgroundColor = '';
     }
     howMuchCostDeliveryCollection();
+    checkShoppingBasket();
 }
 
 
@@ -206,10 +207,21 @@ function calculateBill(){
 
 // Open ConfirmModal
 function openOrderConfirmation() {
+    resetDishCounts();
     document.getElementById('orderConfirmationModal').style.display = 'block';
     shoppingBasket = [];
-    deliveryOption = '';
     udateElements(); 
+}
+
+
+//Zurücksetzen der Counts der Gerichte
+function resetDishCounts() {
+    for (let i = 0; i < mainDishs.length; i++) {
+        mainDishs[i].count = 0;
+    }
+    for (let j = 0; j < appetizers.length; j++) {
+        appetizers[j].count = 0;
+    }
 }
 
 
@@ -238,10 +250,18 @@ function checkShoppingBasket() {
         msoSCC.style.color = "rgba(0, 0, 0, 0.3)";
     }
     if (calculateBill() > 30) {
-        openOrderConfirmationBtn.disabled = false;
-        openOrderConfirmationBtn.classList.add('btn-total-amount-hover');
-        msoSCC.style.color = "black";
+        disabledTheBuyButtonEffects(openOrderConfirmationBtn);
     }
+    if (deliveryOption === 'collection') {
+        disabledTheBuyButtonEffects(openOrderConfirmationBtn);
+    }
+}
+
+
+function disabledTheBuyButtonEffects(openOrderConfirmationBtn){
+    openOrderConfirmationBtn.disabled = false;
+    openOrderConfirmationBtn.classList.add('btn-total-amount-hover');
+    msoSCC.style.color = "black";
 }
 
 
