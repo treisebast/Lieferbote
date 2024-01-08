@@ -1,6 +1,7 @@
 async function init() {
     await includeHTML();
     renderMenu();
+    checkShoppingBasket();
 }
 
 async function includeHTML() {
@@ -30,13 +31,13 @@ function renderMenu() {
 function processMainDish(mainDish) {
     let dishName = mainDish["mainDish"];
     let dishDescription = mainDish["description"];
-    let dishCount = mainDish['count'];
-    let dishPrice = mainDish["price"].toFixed(2).replace('.', ',') + '€';
-    return { dishName, dishDescription,dishCount, dishPrice };
+    let dishCount = mainDish["count"];
+    let dishPrice = mainDish["price"].toFixed(2).replace(".", ",") + "€";
+    return { dishName, dishDescription, dishCount, dishPrice };
 }
 
-function generateHtmlRenderMainDish(dishName, dishDescription, dishPrice, i){
-return `
+function generateHtmlRenderMainDish(dishName, dishDescription, dishPrice, i) {
+    return `
         <div class = "dish-card-addIcon">
             <div class = "dish-card">
                 <h3 class = "dish-name">${dishName}</h3>
@@ -49,19 +50,21 @@ return `
 
 function addToShoppingBasket(i) {
     let selectedDish = mainDishs[i];
-    let existingDish = shoppingBasket.find(dish => dish.mainDish === selectedDish.mainDish);  //Schlüssel für mainDishs[i][mainDish]
+    let existingDish = shoppingBasket.find((dish) => dish.mainDish === selectedDish.mainDish); //Schlüssel für mainDishs[i][mainDish]
     if (existingDish) {
         existingDish.count++;
     } else {
-        mainDishs[i]['count']++;
+        mainDishs[i]["count"]++;
         shoppingBasket.push(mainDishs[i]);
     }
     renderShoppingBasket();
+    calculateTotalAmount();
+    checkShoppingBasket();
 }
 
-function renderShoppingBasket(){
-    let basketContainer = document.getElementById('shoppingBasket');
-    basketContainer.innerHTML = '';
+function renderShoppingBasket() {
+    let basketContainer = document.getElementById("shoppingBasket");
+    basketContainer.innerHTML = "";
     for (let i = 0; i < shoppingBasket.length; i++) {
         let mainDish = shoppingBasket[i];
         let { dishName, dishDescription, dishCount, dishPrice } = processMainDish(mainDish);
@@ -69,7 +72,7 @@ function renderShoppingBasket(){
     }
 }
 
-function generateHtmlRenderShoppingBasket(dishName, dishDescription, dishCount, dishPrice, i){
+function generateHtmlRenderShoppingBasket(dishName, dishDescription, dishCount, dishPrice, i) {
     return `
             <div class = "sb-dish-card-addIcon">
                 <div class = "sb-name-price">
@@ -88,70 +91,115 @@ function generateHtmlRenderShoppingBasket(dishName, dishDescription, dishCount, 
             </div>`;
 }
 
+// Update Counter from Item
 function updateCount(action, i, dishCount) {
-    if ((action === 'remove'+`${i}`) && dishCount > 1) {
+    if (action === "remove" + `${i}` && dishCount > 1) {
         shoppingBasket[i].count--;
-    } else if (action === 'add'+`${i}`) {
+    } else if (action === "add" + `${i}`) {
         shoppingBasket[i].count++;
     }
     renderShoppingBasket();
     calculateTotalAmount();
 }
 
+// Delete Item from Basket
 function removeItem(i) {
     shoppingBasket[i].count = 0;
     shoppingBasket.splice(i, 1);
     if (shoppingBasket.length === 0) {
-        let basketContainer = document.getElementById('shoppingBasket');
-        basketContainer.innerHTML = `
-            <div class="shopping-basket">
-                <span class="material-symbols-outlined mso-shopping_bag">shopping_bag</span>
-                <h2>Fülle deinen Warenkorb</h2>
-                <span class="text-align">Füge einige leckere Gerichte aus der Speisekarte hinzu und bestelle dein Essen.</span>
-            </div>`; 
+        returnBasketContainer();
     } else {
-        renderShoppingBasket(); 
+        renderShoppingBasket();
     }
+    calculateTotalAmount();
+    checkShoppingBasket();
+}
+
+function returnBasketContainer(){
+    let basketContainer = document.getElementById("shoppingBasket");
+    basketContainer.innerHTML = `
+        <div class="shopping-basket">
+            <span class="material-symbols-outlined mso-shopping_bag">shopping_bag</span>
+            <h2>Fülle deinen Warenkorb</h2>
+            <span class="text-align">Füge einige leckere Gerichte aus der Speisekarte hinzu und bestelle dein Essen.</span>
+        </div>`;
 }
 
 
-
-
-let deliveryOption = 'liefern'; // Standardmäßig Lieferung ausgewählt
-
+let deliveryOption;
+//TODO:Dialogfenster anlegen
 function setDeliveryOption(option) {
     deliveryOption = option;
+    if (deliveryOption === "delivery") {
+        document.getElementById("delivery").style.backgroundColor = "rgba(0, 0, 0, 0.25)";
+        document.getElementById("collection").style.backgroundColor = "";
+    } else {
+        document.getElementById("collection").style.backgroundColor = "rgba(0, 0, 0, 0.25)";
+        document.getElementById("delivery").style.backgroundColor = '';
+    }
+    howMuchCostDeliveryCollection();
 }
 
+//Versand oder Lieferung
+function howMuchCostDeliveryCollection(){
+    let cdCost = document.getElementById('cdCost');
+    if (deliveryOption === 'delivery') {
+        let costs = 3.95;
+        let cost = costs.toFixed(2).replace('.', ',');
+        cdCost.innerHTML = `
+            <span>zzgl. Lieferung</span>
+            <span>${cost}€</span>`;
+    } else {
+        let costs = 0;
+        let cost = costs.toFixed(2).replace('.', ',');
+        cdCost.innerHTML = `
+            <span>Abholung</span>
+            <span>${cost}€</span>`;
+    }
+    calculateTotalAmount();
+}
+
+// Preisrechner
 function calculateTotalAmount() {
-    // Überprüfung des Mindestbestellwerts nur für Lieferung
-    if (deliveryOption === 'liefern') {
-        let totalAmount = shoppingBasket.reduce((total, dish) => total + dish.count * dish.price, 0);
-
-        if (totalAmount < 20) {
-            alert("Mindestbestellwert nicht erreicht. Bitte bestellen Sie mindestens im Wert von 20€ für die Lieferung.");
-            return;
-        }
+    let pricePlace = document.getElementById('totalAmount');
+    let amount = shoppingBasket.reduce((total, dish) => total + dish.count * dish.price, 0);
+    let totalAmount;
+    if (deliveryOption === 'delivery') {
+        totalAmount = amount + 3.95;
+    } else {
+        totalAmount = amount;
     }
-
-    // Berechnung des Gesamtpreises mit Lieferkosten, falls Lieferung ausgewählt wurde
-    let totalAmount = shoppingBasket.reduce((total, dish) => total + dish.count * dish.price, 0);
-    if (deliveryOption === 'liefern') {
-        totalAmount += 3.95; // Lieferkosten
-    }
-
-    // Aktualisierung des Gesamtpreis-Containers
-    let totalAmountContainer = document.getElementById('totalAmountContainer');
-    let totalAmountSpan = totalAmountContainer.querySelector('#totalAmount');
-    totalAmountSpan.textContent = `${totalAmount.toFixed(2)}€`;
-
-    alert(`Gesamtbetrag: ${totalAmount.toFixed(2)}€`);
+    pricePlace.innerHTML = `${totalAmount.toFixed(2).replace('.',',')}€`;
 }
 
+// Open ConfirmModal
+function openOrderConfirmation() {
+    document.getElementById('orderConfirmationModal').style.display = 'block';
+    shoppingBasket = [];
+    deliveryOption = '';
+    renderShoppingBasket();
+    calculateTotalAmount();
+    checkShoppingBasket(); 
+}
 
+// Close ConfirmModal
+function closeOrderConfirmationModal() {
+    document.getElementById('orderConfirmationModal').style.display = 'none';
+    returnBasketContainer();
+}
 
+// Abled / Disabled Button
+function checkShoppingBasket() {
+    let openOrderConfirmationBtn = document.getElementById('openOrderConfirmationBtn');
+    let hasItemsInBasket = shoppingBasket.length > 0;
+    openOrderConfirmationBtn.disabled = !hasItemsInBasket;
+    document.getElementById('msoSCC').style.color = "black";
+    if (!(shoppingBasket.length > 0)) {
+        document.getElementById('msoSCC').style.color = "rgba(0, 0, 0, 0.3)";
+    }
+}
 
-    // Scrollfunktion
+// Scrollfunktion
 function isEndOfPage() {
     return window.innerHeight + window.scrollY >= document.body.scrollHeight + 50;
 }
@@ -161,7 +209,7 @@ window.onscroll = function () {
     shoppingCard.style.top = `${Math.max(0, 80 - window.scrollY)}px`;
 
     if (isEndOfPage()) {
-        shoppingCard.style.height = "calc(100vh - 150px)"; 
+        shoppingCard.style.height = "calc(100vh - 150px)";
     } else {
         shoppingCard.style.height = "100vh";
     }

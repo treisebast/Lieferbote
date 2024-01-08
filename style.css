@@ -45,6 +45,9 @@ body {
     border-radius: 20px;
     border: unset;
 }
+.collection:hover, .delivery:hover{
+    background-color: rgba(0, 0, 0, 0.1);
+}
 
 .delivery {
     padding: 8px;
@@ -53,7 +56,7 @@ body {
 }
 
 .shopping-basket {
-    padding-top: 10vh;
+    padding-top: 5vh;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -72,7 +75,7 @@ body {
 #shoppingBasket{
     overflow-y: auto;
     overflow-x: hidden;
-    min-height: 500px;
+    min-height: 250px;
     max-height: 600px;
     width: 100%;
     margin-top: 16px;
@@ -284,4 +287,83 @@ body {
     display: flex;
     align-items: center;
     justify-content: space-between;
+}
+
+.total-amount-container{
+    margin-top: 8px;
+    padding-top: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    width: 100%;
+}
+
+.total-amount-container span{
+    font-size: 1.25em;
+    font-weight: 500;
+}
+
+.btn-total-amount{
+    display: flex;
+    align-items: center;
+    font-size: 1.35em;
+    gap: 0.25em;
+    background: rgba(255, 128, 0, 0.5);
+    border: none;
+    border-radius: 20px;
+    padding: 8px;
+}
+
+.btn-total-amount:hover{
+    background: rgba(255, 128, 0, 0.8);
+    cursor: pointer;
+}
+
+.mso-shopping-cart{
+    transform: unset !important;
+    text-shadow: unset !important;
+}
+
+.collection-delivery-cost{
+    margin-top: 8px;
+    margin-bottom: 8px;
+}
+
+.collection-delivery-cost{
+    display: flex;
+    justify-content: space-between;
+    width: 90%;
+}
+
+.modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.8);
+    z-index: 1000;
+}
+
+.modal-content {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    padding: 32px;
+    background-color: #fff;
+    border: 1px solid #ccc;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    z-index: 1001;
+    border-radius: 16px;
+    width: 80%;
+}
+
+.close {
+    position: absolute;
+    top: 16px;
+    right: 16px;
+    font-size: 32px;
+    cursor: pointer;
 }

@@ -73,8 +73,8 @@
         <div class="shopping-card">
             <h2>Warenkorb</h2>
             <div class="collection-delivery">
-                <button class="delivery" onclick="setDeliveryOption('liefern')">Lieferung</button>
-                <button class="collection" onclick="setDeliveryOption('abholen')">Abholung</button>
+                <button class="delivery" id="delivery" onclick="setDeliveryOption('delivery')">Lieferung</button>
+                <button class="collection" id="collection" onclick="setDeliveryOption('collection')">Abholung</button>
 
 
             </div>
@@ -88,9 +88,20 @@
                 </div>
             </div>
 
-            <div id="totalAmountContainer">
-                <span class="material-symbols-outlined" onclick="calculateTotalAmount()">shopping_cart_checkout</span>
-                <span id="totalAmount">0.00€</span>
+            <div class="collection-delivery-cost" id="cdCost"></div>
+
+            <div id="totalAmountContainer" class="total-amount-container">
+                <button class="btn-total-amount" id="openOrderConfirmationBtn" onclick="openOrderConfirmation()"> Jetzt bestellen <span
+                        class="material-symbols-outlined mso-shopping-cart" id="msoSCC"
+                        onclick="calculateTotalAmount()">shopping_cart_checkout</span></button>
+                <span id="totalAmount">0,00€</span>
+            </div>
+
+            <div id="orderConfirmationModal" class="modal">
+                <div class="modal-content">
+                    <span class="close" onclick="closeOrderConfirmationModal()">&times;</span>
+                    <p>Vielen Dank! Ihre Bestellung wurde aufgegeben. Wir freuen uns auf Ihren nächsten Besuch!</p>
+                </div>
             </div>
         </div>
     </div>
@@ -99,6 +110,9 @@
     <!-- Footer -->
     <div w3-include-html="templates/footer.html"></div>
 
+
+
+    
 </body>
 
 </html>
