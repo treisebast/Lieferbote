@@ -125,9 +125,17 @@ function returnBasketContainer(){
         </div>`;
 }
 
+// DialogModal for beginn delivery or collection
+document.addEventListener('DOMContentLoaded', function() {
+    document.getElementById('overlay').style.display = 'flex';
+});
+
+function closeDialog() {
+    document.getElementById('overlay').style.display = 'none';
+}
 
 let deliveryOption;
-//TODO:Dialogfenster anlegen
+
 function setDeliveryOption(option) {
     deliveryOption = option;
     if (deliveryOption === "delivery") {
@@ -191,11 +199,15 @@ function closeOrderConfirmationModal() {
 // Abled / Disabled Button
 function checkShoppingBasket() {
     let openOrderConfirmationBtn = document.getElementById('openOrderConfirmationBtn');
-    let hasItemsInBasket = shoppingBasket.length > 0;
-    openOrderConfirmationBtn.disabled = !hasItemsInBasket;
-    document.getElementById('msoSCC').style.color = "black";
+    let msoSCC = document.getElementById('msoSCC');
     if (!(shoppingBasket.length > 0)) {
-        document.getElementById('msoSCC').style.color = "rgba(0, 0, 0, 0.3)";
+        openOrderConfirmationBtn.disabled = true;
+        openOrderConfirmationBtn.classList.remove('btn-total-amount-hover');
+        msoSCC.style.color = "rgba(0, 0, 0, 0.3)";
+    } else {
+        openOrderConfirmationBtn.disabled = false;
+        openOrderConfirmationBtn.classList.add('btn-total-amount-hover');
+        msoSCC.style.color = "black";
     }
 }
 

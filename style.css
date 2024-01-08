@@ -314,7 +314,7 @@ body {
     padding: 8px;
 }
 
-.btn-total-amount:hover{
+.btn-total-amount-hover:hover{
     background: rgba(255, 128, 0, 0.8);
     cursor: pointer;
 }
@@ -342,7 +342,7 @@ body {
     left: 0;
     width: 100%;
     height: 100%;
-    background-color: rgba(0, 0, 0, 0.8);
+    background-color: rgba(0, 0, 0, 0.85);
     z-index: 1000;
 }
 
@@ -357,7 +357,6 @@ body {
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     z-index: 1001;
     border-radius: 16px;
-    width: 80%;
 }
 
 .close {
@@ -366,4 +365,44 @@ body {
     right: 16px;
     font-size: 32px;
     cursor: pointer;
+}
+
+.overlay {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.85);
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+}
+
+.dialog {
+    background: #fff;
+    padding: 32px;
+    border-radius: 16px;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+}
+
+.dialog span {
+    margin-bottom: 24px;
+}
+
+.btn-deli-col{
+    padding: 8px;
+    background: rgba(255, 128, 0, 0.5);
+    cursor: pointer;
+    border-radius: 20px;
+    border: unset;
+    margin-left: 8px;
+    margin-right: 8px;
+}
+
+.btn-deli-col:hover{
+    background: rgba(255, 128, 0, 0.8);
 }

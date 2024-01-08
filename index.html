@@ -15,11 +15,9 @@
 
 
     <!-- Favicon -->
-    <link rel="apple-touch-icon" sizes="180x180" href="./favicon/apple-touch-icon.png">
-    <link rel="icon" type="image/png" sizes="32x32" href="./favicon/favicon-32x32.png">
-    <link rel="icon" type="image/png" sizes="16x16" href="./favicon/favicon-16x16.png">
-    <link rel="manifest" href="./favicon/site.webmanifest">
-
+    <link rel="icon"
+        href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' height='24' viewBox='0 -960 960 960' width='24'%3E%3Cpath fill='%23ff8000' d='m175-120-56-56 410-410q-18-42-5-95t57-95q53-53 118-62t106 32q41 41 32 106t-62 118q-42 44-95 57t-95-5l-50 50 304 304-56 56-304-302-304 302Zm118-342L173-582q-54-54-54-129t54-129l248 250-128 128Z'/%3E%3C/svg%3E"
+        type="image/svg+xml">
 
 </head>
 
@@ -58,6 +56,14 @@
             </div>
         </div>
 
+        <!-- Vorspeise -->
+        <div class="render-container">
+            <img class="main-dish" src="img/bruschetta-4282902_1280.jpg" alt="Pizza">
+
+            <div class="menu-card" id="menuAppetizer"></div>
+        </div>
+
+        <!-- Hauptgerichte -->
         <div class="render-container">
             <img class="main-dish" src="img/pizza-3007395_1920.jpg" alt="Pizza">
 
@@ -91,18 +97,32 @@
             <div class="collection-delivery-cost" id="cdCost"></div>
 
             <div id="totalAmountContainer" class="total-amount-container">
-                <button class="btn-total-amount" id="openOrderConfirmationBtn" onclick="openOrderConfirmation()"> Jetzt bestellen <span
-                        class="material-symbols-outlined mso-shopping-cart" id="msoSCC"
+                <button class="btn-total-amount" id="openOrderConfirmationBtn" onclick="openOrderConfirmation()"> Jetzt
+                    bestellen <span class="material-symbols-outlined mso-shopping-cart" id="msoSCC"
                         onclick="calculateTotalAmount()">shopping_cart_checkout</span></button>
                 <span id="totalAmount">0,00€</span>
             </div>
 
+            <!-- ConfirmationsModal -->
             <div id="orderConfirmationModal" class="modal">
                 <div class="modal-content">
                     <span class="close" onclick="closeOrderConfirmationModal()">&times;</span>
                     <p>Vielen Dank! Ihre Bestellung wurde aufgegeben. Wir freuen uns auf Ihren nächsten Besuch!</p>
                 </div>
             </div>
+
+            <!-- DialogModal -->
+            <div class="overlay" id="overlay">
+                <div class="dialog">
+                    <h1>Willkommen bei Lieferbote</h1>
+                    <span>Möchten Sie Ihr Bestellung selbst abholen oder liefern lassen?</span>
+                    <div>
+                        <button class="btn-deli-col" onclick="setDeliveryOption('delivery'); closeDialog()">Lieferung</button>
+                        <button class="btn-deli-col" onclick="setDeliveryOption('collection'); closeDialog()">Abholung</button>
+                    </div>
+                </div>
+            </div>
+
         </div>
     </div>
 
@@ -112,7 +132,7 @@
 
 
 
-    
+
 </body>
 
 </html>
