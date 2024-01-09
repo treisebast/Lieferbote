@@ -44,6 +44,7 @@ body {
     padding: 8px;
     border-radius: 20px;
     border: unset;
+    cursor: pointer;
 }
 
 .collection:hover, .delivery:hover {
@@ -54,6 +55,7 @@ body {
     padding: 8px;
     border-radius: 20px;
     border: unset;
+    cursor: pointer;
 }
 
 .shopping-basket {

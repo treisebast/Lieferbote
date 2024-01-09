@@ -1,3 +1,5 @@
+let deliveryOption;
+
 async function init() {
     await includeHTML();
     renderDishs();
@@ -106,6 +108,9 @@ function generateHtmlRenderShoppingBasket(dishName, dishDescription, dishCount, 
 
 // Update Counter from Item
 function updateCount(action, i, dishCount) {
+    if (action === "remove" + `${i}` && dishCount === 1) {
+        removeItem(i);
+    }
     if (action === "remove" + `${i}` && dishCount > 1) {
         shoppingBasket[i].count--;
     } else if (action === "add" + `${i}`) {
@@ -150,8 +155,6 @@ function closeDialog() {
 }
 
 
-let deliveryOption;
-
 function setDeliveryOption(option) {
     deliveryOption = option;
     if (deliveryOption === "delivery") {
@@ -166,7 +169,7 @@ function setDeliveryOption(option) {
 }
 
 
-//Versand oder Lieferung
+//delivery and collection
 function howMuchCostDeliveryCollection(){
     let cdCost = document.getElementById('cdCost');
     if (deliveryOption === 'delivery') {
@@ -186,7 +189,7 @@ function howMuchCostDeliveryCollection(){
 }
 
 
-// Preisrechner
+// price calculate
 function calculateTotalAmount() {
     let pricePlace = document.getElementById('totalAmount');
     let amount = calculateBill();
@@ -214,7 +217,7 @@ function openOrderConfirmation() {
 }
 
 
-//Zurücksetzen der Counts der Gerichte
+//remove the Counts from Dishs
 function resetDishCounts() {
     for (let i = 0; i < mainDishs.length; i++) {
         mainDishs[i].count = 0;
@@ -225,7 +228,7 @@ function resetDishCounts() {
 }
 
 
-//Update mehrerer Funktionen
+//Update function
 function udateElements(){
     renderShoppingBasket();
     calculateTotalAmount();
@@ -265,7 +268,7 @@ function abledTheBuyButtonEffects(openOrderConfirmationBtn){
 }
 
 
-// Scrollfunktion
+// Scrollfunction
 function isEndOfPage() {
     return window.innerHeight + window.scrollY >= document.body.scrollHeight + 50;
 }
@@ -323,8 +326,8 @@ function isDishMatchingSearch(dish, search) {
 
 //Menu / Warenkorb responsiv
 function toggleShoppingCart() {
-    var shoppingCard = document.getElementById('shoppingCard');
-    var isHidden = shoppingCard.classList.contains('respon-hidden');
+    let shoppingCard = document.getElementById('shoppingCard');
+    let isHidden = shoppingCard.classList.contains('respon-hidden');
     if (isHidden) {
         shoppingCard.classList.remove('respon-hidden');
     } else {
